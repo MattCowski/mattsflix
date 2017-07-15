@@ -2,55 +2,12 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
+import ResultsTable from './ResultsTable'
 
 const onChange = (e)=> console.log(e.target.value)
 
-const mapStateToProps = (state, ownProps)=>{
-  return {
-    ...state
-  }
-}
 
-const SearchResultRow = ({onResultClick, title, rating, category, cast, director, summary, poster})=>
-    <tr onClick={onResultClick}>
-      <td>{title}</td>
-      <td>{rating}</td>
-      <td>{category}</td>
-      <td><img width="100" src={poster}/></td>
-      {/* <td>{summary}</td> */}
-      <td>{director}</td>
-    </tr>
 
-const ResultsTable = connect(mapStateToProps)(
-  ({results})=>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Rating</th>
-          <th>Category</th>
-          <th>Poster</th>
-          <th>Summary</th>
-          <th>Director</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          results.map((data, index)=>
-            <SearchResultRow
-              key={index}
-              title={data.show_title}
-              poster={data.poster}
-              director={data.director}
-              rating={data.rating}
-              summary={data.summary}
-              onResultClick={(e)=>console.log(index)}
-             />
-           )
-        }
-      </tbody>
-    </table>
-)
 
 class App extends Component {
   render() {
