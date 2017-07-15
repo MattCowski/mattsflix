@@ -3,8 +3,7 @@ import logo from '../logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import ResultsTable from './ResultsTable'
-
-const onChange = (e)=> console.log(e.target.value)
+import SearchBox from './SearchBox'
 
 
 
@@ -20,14 +19,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <label>
-          Search:
-          <input
-            type="text"
-            placeholder="Search..."
-            onChange={onChange}
-          />
-        </label>
+        <SearchBox/>
 
         <h2>Results</h2>
         <ResultsTable/>
