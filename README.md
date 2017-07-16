@@ -1,7 +1,8 @@
-Mattsflix is a React/Redux (Webpack/Babel/ES6) app that let’s you search movies by Title, Director, and Actor. You will be using this API in order to implement the search functionality: https://netflixroulette.net/api/
+Mattsflix is a React/Redux app that let’s you search Neflix movies by Title, Director, and Actor. It leverages https://netflixroulette.net/api/
 
-The app should have a search bar and a table displaying the results below, and if you click on a movie you should be able to see the movie details and summary (you can decide how to implement/design this flow). The design and styling of the UI is up to you. 
+Instant results as you type. Seamlessly switch between director / title / actor without re-entering search. Clicking on a movie opens a card with details and summary. Closing card or updating search field / input will return back the list.
 
+Separation of concerns by using stateless react components that are basically functions. Business logic and state management is delegated to redux' actions, reducers that can be easily tested.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

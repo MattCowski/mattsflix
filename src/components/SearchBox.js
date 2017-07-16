@@ -33,10 +33,8 @@ const SearchBox = connect(mapStateToProps, mapDispatchToProps)(
           type="text"
           placeholder="Search..."
           onChange={onChange}
-
         />
       </label>
-      {/* <code>{value}</code> */}
     </div>
 )
 
