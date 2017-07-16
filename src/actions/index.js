@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch'
 
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
-function requestMovies(query) {
+function requestMovies(query, field) {
   return {
     type: REQUEST_MOVIES,
-    query
+    query,
+    field
   }
 }
 
@@ -18,28 +19,27 @@ function receiveMovies(query, json) {
   }
 }
 
-export function fetchMovies(query) {
+export const RECEIVE_ERROR = 'RECEIVE_ERROR'
+function receiveError(message) {
+  return {
+    type: RECEIVE_ERROR,
+    message
+  }
+}
+
+export function fetchMovies(query, field) {
   return function (dispatch) {
-    if (query.length<3) return dispatch({type:'RECEIVE_ERROR',message:'Please enter at least 5 chars'})
-    dispatch(requestMovies(query))
+    if (query.length<3) return dispatch(receiveError('Please enter at least 5 chars'))
 
-    // The function called by the thunk middleware can return a value,
-    // that is passed on as the return value of the dispatch method.
+    dispatch(requestMovies(query, field))
 
-    // In this case, we return a promise to wait for.
-    // This is not required by thunk middleware, but it is convenient for us.
-
-    return fetch(`https://netflixroulette.net/api/api.php?actor=${query}`)
+    return fetch(`https://netflixroulette.net/api/api.php?${field}=${query}`)
       .then(
         response => response.json(),
-        // Do not use catch, because that will also catch
-        // any errors in the dispatch and resulting render,
-        // causing an loop of 'Unexpected batch number' errors.
-        // https://github.com/facebook/react/issues/6895
         error => console.log('An error occured.', error)
       )
       .then(json =>
-        (json.errorcode) ? dispatch({type:'RECEIVE_ERROR',message:json.message}) : dispatch(receiveMovies(query, json))
+        (json.errorcode) ? dispatch(receiveError(json.message)) : dispatch(receiveMovies(query, json))
       )
   }
 }

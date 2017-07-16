@@ -11,8 +11,7 @@ const mapStateToProps = (state, ownProps)=>{
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: (e) => {
-      // dispatch({ type: 'SEARCH', value:e.target.value })
-      dispatch(fetchMovies(e.target.value))
+      dispatch(fetchMovies(e.target.value, 'actor'))
     }
   }
 }
