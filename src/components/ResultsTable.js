@@ -5,7 +5,8 @@ import { setSelected } from '../actions'
 
 const mapStateToProps = (state, ownProps)=>{
   return {
-    ...state
+    ...state,
+    results: !state.filter? state.results : state.results.filter(movie=> movie.category==state.filter)
   }
 }
 

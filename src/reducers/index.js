@@ -3,12 +3,21 @@ const initialState = {
   results: [],
   message: "Search by Title, Director or Actor!",
   field: 'actor',
-  value: '',
-  selected: null
+  value: 'bruce willis',
+  selected: null,
+  filter: null
 }
 
 function reducers(state = initialState, action) {
   switch (action.type) {
+  case 'SET_FILTER':
+    console.log('setting filter', action.filter)
+    return {
+      ...state,
+      // filter: action.filter,
+      filter: action.filter=='X (clear filter)'?null: action.filter,
+      //results: state.results.filter(movie=> movie.category==action.filter)
+    }
   case 'SET_SELECTED':
     return {
       ...state,

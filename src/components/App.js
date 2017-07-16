@@ -4,6 +4,7 @@ import './App.css';
 import ResultsTable from './ResultsTable'
 import SearchBox from './SearchBox'
 import MovieDetails from './MovieDetails'
+import GenreButton from './GenreButton'
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <p className="App-intro">
           Search for a movie by Title, Director, and Actor
         </p>
+        <GenreButton/>
         <SearchBox/>
 
         <h2>Results</h2>
