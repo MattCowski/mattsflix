@@ -1,11 +1,10 @@
 import fetch from 'isomorphic-fetch'
 
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
-function requestMovies(query, field) {
+function requestMovies(query) {
   return {
     type: REQUEST_MOVIES,
-    query,
-    field
+    query
   }
 }
 
@@ -14,7 +13,7 @@ function receiveMovies(query, json) {
   return {
     type: RECEIVE_MOVIES,
     query,
-    results: json,//.map(child => child),
+    results: Array.isArray(json) ? json : [json],
     receivedAt: Date.now()
   }
 }
@@ -27,11 +26,22 @@ function receiveError(message) {
   }
 }
 
-export function fetchMovies(query, field) {
-  return function (dispatch) {
+export const SET_FIELD = 'SET_FIELD'
+export function setField(field) {
+  return {
+    type: SET_FIELD,
+    field
+  }
+}
+
+export function fetchMovies(query) {
+  return function (dispatch, getState) {
+    const field = getState().field
+    query = query ? query : getState().value
+
     if (query.length<3) return dispatch(receiveError('Please enter at least 5 chars'))
 
-    dispatch(requestMovies(query, field))
+    dispatch(requestMovies(query))
 
     return fetch(`https://netflixroulette.net/api/api.php?${field}=${query}`)
       .then(

@@ -1,11 +1,18 @@
 
 const initialState = {
   results: [],
-  message: "Search by Title, Director or Actor!"
+  message: "Search by Title, Director or Actor!",
+  field: 'title',
+  value: ''
 }
 
 function reducers(state = initialState, action) {
   switch (action.type) {
+  case 'SET_FIELD':
+    return {
+      ...state,
+      field: action.field,
+    }
   case 'RECEIVE_ERROR':
     return {
       ...state,
