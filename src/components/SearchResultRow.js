@@ -6,7 +6,6 @@ const SearchResultRow = ({onResultClick, title, rating, category, cast, director
       <td>{rating}</td>
       <td>{category}</td>
       <td><img width="100" src={poster}/></td>
-      {/* <td>{summary}</td> */}
       <td>{director}</td>
     </tr>
 

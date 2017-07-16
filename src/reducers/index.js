@@ -2,12 +2,18 @@
 const initialState = {
   results: [],
   message: "Search by Title, Director or Actor!",
-  field: 'title',
-  value: ''
+  field: 'actor',
+  value: '',
+  selected: null
 }
 
 function reducers(state = initialState, action) {
   switch (action.type) {
+  case 'SET_SELECTED':
+    return {
+      ...state,
+      selected: action.selected
+    }
   case 'SET_FIELD':
     return {
       ...state,
@@ -31,7 +37,8 @@ function reducers(state = initialState, action) {
       ...state,
       value: action.query,
       message: 'searching...',
-      results: []
+      results: [],
+      selected: null
     }
   default:
     return state

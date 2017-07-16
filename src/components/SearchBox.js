@@ -10,9 +10,7 @@ const mapStateToProps = (state, ownProps)=>{
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onChange: (e) => {
-      dispatch(fetchMovies(e.target.value))
-    },
+    onChange: (e) => dispatch(fetchMovies(e.target.value)),
     setField: (e) => {
       dispatch(setField(e.target.value))
       dispatch(fetchMovies())

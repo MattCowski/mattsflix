@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import SearchResultRow from './SearchResultRow'
-
+import { setSelected } from '../actions'
 
 const mapStateToProps = (state, ownProps)=>{
   return {
     ...state
   }
 }
-const ResultsTable = connect(mapStateToProps)(
-  ({results, message})=>
-    message ? <code>{message}</code> :
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onResultClick: (movie)=> dispatch(setSelected(movie))
+  }
+}
+
+const ResultsTable = connect(mapStateToProps, mapDispatchToProps)(
+  ({results, message, onResultClick, selected})=>
+    message ? <code>{message}</code> : !selected &&
     <table>
       <thead>
         <tr>
@@ -18,7 +25,6 @@ const ResultsTable = connect(mapStateToProps)(
           <th>Rating</th>
           <th>Category</th>
           <th>Poster</th>
-          <th>Summary</th>
           <th>Director</th>
         </tr>
       </thead>
@@ -32,7 +38,8 @@ const ResultsTable = connect(mapStateToProps)(
               director={data.director}
               rating={data.rating}
               summary={data.summary}
-              onResultClick={(e)=>console.log(index)}
+              category={data.category}
+              onResultClick={()=>onResultClick(data)}
              />
            )
         }

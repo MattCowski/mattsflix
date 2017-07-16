@@ -34,6 +34,14 @@ export function setField(field) {
   }
 }
 
+export const SET_SELECTED = 'SET_SELECTED'
+export function setSelected(selected) {
+  return {
+    type: SET_SELECTED,
+    selected
+  }
+}
+
 export function fetchMovies(query) {
   return function (dispatch, getState) {
     const field = getState().field

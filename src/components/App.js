@@ -4,9 +4,7 @@ import './App.css';
 import { connect } from 'react-redux'
 import ResultsTable from './ResultsTable'
 import SearchBox from './SearchBox'
-
-
-
+import MovieDetails from './MovieDetails'
 
 class App extends Component {
   render() {
@@ -17,12 +15,12 @@ class App extends Component {
           <h2>Search for a movie by Title, Director, and Actor</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <SearchBox/>
         </p>
-        <SearchBox/>
 
         <h2>Results</h2>
         <ResultsTable/>
+        <MovieDetails/>
       </div>
     );
   }
