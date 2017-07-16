@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps)=>{
   }
 }
 const ResultsTable = connect(mapStateToProps)(
-  ({results})=>
+  ({results, message})=>
+    message ? <code>{message}</code> :
     <table>
       <thead>
         <tr>

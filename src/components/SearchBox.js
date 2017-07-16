@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { fetchMovies } from '../actions'
 
 const mapStateToProps = (state, ownProps)=>{
   return {
@@ -10,8 +11,8 @@ const mapStateToProps = (state, ownProps)=>{
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: (e) => {
-      console.log(e.target.value)
-      // dispatch(setVisibilityFilter(ownProps.filter))
+      // dispatch({ type: 'SEARCH', value:e.target.value })
+      dispatch(fetchMovies(e.target.value))
     }
   }
 }
