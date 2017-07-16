@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
-import { connect } from 'react-redux'
 import ResultsTable from './ResultsTable'
 import SearchBox from './SearchBox'
 import MovieDetails from './MovieDetails'
@@ -12,11 +11,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Search for a movie by Title, Director, and Actor</h2>
+          <h2>Matt's Flix!</h2>
         </div>
         <p className="App-intro">
-          <SearchBox/>
+          Search for a movie by Title, Director, and Actor
         </p>
+        <SearchBox/>
 
         <h2>Results</h2>
         <ResultsTable/>

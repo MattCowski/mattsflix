@@ -5,7 +5,7 @@ const SearchResultRow = ({onResultClick, title, rating, category, cast, director
       <td>{title}</td>
       <td>{rating}</td>
       <td>{category}</td>
-      <td><img width="100" src={poster}/></td>
+      <td><img width="100" alt={title} src={poster}/></td>
       <td>{director}</td>
     </tr>
 
