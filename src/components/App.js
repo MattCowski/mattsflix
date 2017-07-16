@@ -5,6 +5,7 @@ import ResultsTable from './ResultsTable'
 import SearchBox from './SearchBox'
 import MovieDetails from './MovieDetails'
 import GenreButton from './GenreButton'
+import SortButton from './SortButton'
 
 class App extends Component {
   render() {
@@ -15,9 +16,10 @@ class App extends Component {
           <h2>Matt's Flix!</h2>
         </div>
         <p className="App-intro">
-          Search for a movie by Title, Director, and Actor
+          Search for a NETFLIX available movie
         </p>
         <GenreButton/>
+        <SortButton/>
         <SearchBox/>
 
         <h2>Results</h2>

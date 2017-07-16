@@ -1,5 +1,13 @@
 import fetch from 'isomorphic-fetch'
 
+export const SORT_ORDER = 'SORT_ORDER'
+export function sortBy(order) {
+  return {
+    type: SORT_ORDER,
+    order
+  }
+}
+
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 function requestMovies(query) {
   return {

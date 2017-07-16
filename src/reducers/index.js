@@ -10,13 +10,19 @@ const initialState = {
 
 function reducers(state = initialState, action) {
   switch (action.type) {
+  case 'SORT_ORDER':
+    console.log('ordr by :', action.order)
+    // action.order is for now 'Top Rated'
+    return {
+      ...state,
+      order: state.order==action.order+" v" ? action.order+" ^" : action.order+" v"
+      // filter: action.filter=='X (clear filter)'?null: action.filter,
+    }
   case 'SET_FILTER':
     console.log('setting filter', action.filter)
     return {
       ...state,
-      // filter: action.filter,
       filter: action.filter=='X (clear filter)'?null: action.filter,
-      //results: state.results.filter(movie=> movie.category==action.filter)
     }
   case 'SET_SELECTED':
     return {

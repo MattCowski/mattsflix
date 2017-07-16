@@ -28,7 +28,6 @@ const GenreButton = connect(mapStateToProps, mapDispatchToProps)(
     <button id='Horror Movies' onClick={onClick}>Horror Movies</button>
     <button id='Action & Adventure' onClick={onClick}>Action & Adventure</button>
     <button id='Comedies' onClick={onClick}>Comedies</button>
-    <button id='Pornographic' onClick={onClick}>Pornographic</button>
     <button id='X (clear filter)' onClick={onClick}>X (clear filter)</button>
   </label>
 )

@@ -4,9 +4,15 @@ import SearchResultRow from './SearchResultRow'
 import { setSelected } from '../actions'
 
 const mapStateToProps = (state, ownProps)=>{
+  const filteredResults = !state.filter? state.results : state.results.filter(movie=> movie.category==state.filter)
+  const sortAsc = (results)=> results.sort((a,b)=> a.rating-b.rating)
+  const sortDes = (results)=> results.sort((a,b)=> b.rating-a.rating)
+
   return {
     ...state,
-    results: !state.filter? state.results : state.results.filter(movie=> movie.category==state.filter)
+    results: state.order=='rating v' ? sortAsc(filteredResults)
+          : state.order=='rating ^' ? sortDes(filteredResults)
+          : filteredResults
   }
 }
 
