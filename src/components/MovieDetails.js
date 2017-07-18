@@ -18,8 +18,7 @@ const mapDispatchToProps = dispatch => {
 const MovieDetails = ({selected, resetSelected})=>
   selected &&
   <div>
-    <span onClick={resetSelected}>back to list / close (X)</span>
-
+    <span className="modalshadow" onClick={resetSelected}>back to list / close (X)</span>
     <div className="moviecard">
       <div className="movie-poster play-trailer"
         style={{background: 'url('+selected.poster+')'}}

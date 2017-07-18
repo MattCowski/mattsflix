@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
 
 const ResultsTable = connect(mapStateToProps, mapDispatchToProps)(
   ({results, message, onResultClick, selected})=>
-    message ? <code>{message}</code> : !selected &&
+    message ? <code>{message}</code> :
     <table>
       <thead>
         <tr>
