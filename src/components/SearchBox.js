@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const SearchBox = connect(mapStateToProps, mapDispatchToProps)(
   ({onChange, value, field, setField})=>
-    <div>
+    <div className="Search">
       <select value={field} onChange={setField}>
         <option value="title">title</option>
         <option value="director">director</option>

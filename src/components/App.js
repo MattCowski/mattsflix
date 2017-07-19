@@ -12,19 +12,21 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h2>Matt's Flix!</h2>
+          <p className="App-intro">
+            Search for a NETFLIX available movie
+          </p>
+          <div className="Navigation">
+            <GenreButton/>
+            <SortButton/>
+            <SearchBox/>
+          </div>
         </div>
-        <p className="App-intro">
-          Search for a NETFLIX available movie
-        </p>
-        <GenreButton/>
-        <SortButton/>
-        <SearchBox/>
-
-        <h2>Results</h2>
-        <ResultsTable/>
-        <MovieDetails/>
+        <div className="Results">
+          <h2>Results</h2>
+          <ResultsTable/>
+          <MovieDetails/>
+        </div>
       </div>
     );
   }
