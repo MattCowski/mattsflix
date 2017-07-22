@@ -12,12 +12,12 @@ const mapDispatchToProps = (dispatch)=> {
   }
 }
 
-const GenreButton = connect(mapStateToProps, mapDispatchToProps)(
-  ({onClick, order})=>
-  <label>
+const SortButton = connect(mapStateToProps, mapDispatchToProps)(
+  ({onClick, order, results})=>
+  results.length>0 && <label>
     Sort by:
     <button id='rating' onClick={onClick}>{!order? "rating ": order }</button>
   </label>
 )
 
-export default GenreButton
+export default SortButton
