@@ -1,0 +1,78 @@
+.TitleList {
+  padding: 20px 40px;
+  box-sizing: border-box;
+  transition: opacity 3s ease;
+  opacity: 0; }
+  .TitleList .Title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1em; }
+  .TitleList .titles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    width: calc(100vw - 80px);
+    box-sizing: border-box;
+    justify-content: space-between; }
+  .TitleList[data-loaded='true'] {
+    opacity: 1; }
+
+.Item {
+  width: calc(20% - 10px);
+  min-width: calc(20% - 10px);
+  background-color: #000000;
+  flex: 1 0 auto;
+  background-position: center;
+  background-size: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-right: 10px;
+  transition: background 1s ease; }
+  .Item:nth-child(n+6) {
+    margin-top: 20px; }
+  .Item:last-child {
+    margin-right: 0; }
+  .Item .overlay {
+    padding: 20px;
+    position: relative;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .125s ease; }
+    .Item .overlay .title {
+      font-size: 22px;
+      font-weight: 200;
+      opacity: 0;
+      transition: opacity .25s ease; }
+    .Item .overlay .rating {
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity .25s ease .125s; }
+    .Item .overlay .plot {
+      font-size: 14px;
+      display: -webkit-box;
+      margin-top: 100px;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: 0;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: margin .25s ease .125s, opacity .25s ease .25s; }
+  .Item:hover {
+    background-size: 150%; }
+    .Item:hover .overlay {
+      opacity: 1;
+      pointer-events: all; }
+      .Item:hover .overlay .plot {
+        margin-top: 10px;
+        opacity: 1; }
+      .Item:hover .overlay .title {
+        opacity: 1; }
+      .Item:hover .overlay .rating {
+        opacity: 1; }
+      .Item:hover .overlay .ListToggle {
+        opacity: 1; }
