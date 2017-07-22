@@ -1,13 +1,13 @@
 import React from 'react';
 
 const SearchResultRow = ({onResultClick, title, rating, category, cast, director, summary, poster})=>
-    <tr onClick={onResultClick}>
-      <td style={{cursor:'pointer',textDecoration: 'underline'}}>{title}</td>
-      <td>{rating}</td>
-      <td>{category}</td>
-      <td><img width="100" alt={title} src={poster}/></td>
-      <td>{director}</td>
-    </tr>
 
+      <div onClick={onResultClick}className="Item" style={{backgroundImage: 'url(' + poster + ')'}} >
+				<div className="overlay">
+					<div className="title">{title}</div>
+					<div className="rating">{rating} / 10</div>
+					<div className="plot">{summary}</div>
+				</div>
+			</div>
 
 export default SearchResultRow
