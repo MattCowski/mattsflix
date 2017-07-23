@@ -43,7 +43,13 @@ function reducers(state = initialState, action) {
   case 'RECEIVE_MOVIES':
     return {
       ...state,
-      results: action.results,
+      results: action.results.map((movie)=>{
+        var obj = new Image();
+        obj.src = movie.poster
+        // check if poster url can load
+        movie.posterLoaded = obj.complete
+        return movie
+      }),
       message: null
     }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const SearchResultRow = ({onResultClick, title, rating, category, cast, director, summary, poster})=>
+const SearchResultRow = ({onResultClick, movie})=>
 
-      <div onClick={onResultClick}className="Item" style={{backgroundImage: 'url(' + poster + ')'}} >
-				<div className="overlay">
-					<div className="title">{title}</div>
-					<div className="rating">{rating} / 10</div>
-					<div className="plot">{summary}</div>
+      <div onClick={onResultClick} className="Item" style={{backgroundImage: 'url(' + movie.poster + ')'}} >
+				<div className="overlay" style={movie.posterLoaded? null:{opacity:1}}>
+					<div className="title" style={movie.posterLoaded? null:{opacity:1}}>{movie.show_title}</div>
+					<div className="rating">{movie.rating}</div>
+					<div className="plot">{movie.summary}</div>
 				</div>
 			</div>
 
