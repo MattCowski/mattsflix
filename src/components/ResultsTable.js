@@ -42,17 +42,14 @@ const ResultsTable = connect(mapStateToProps, mapDispatchToProps)(
             <div className="titles-wrapper">
               {
                 results
-                .filter(movie=> movie.category==cat)
+                .filter(movie=> movie.category===cat)
+                // .sort((a,b)=>b.posterLoaded-a.posterLoaded)
+                // .filter(movie=> movie.posterLoaded)
                 .slice(0, size)
                 .map((data, index)=>
                 <SearchResultRow
                   key={index}
-                  title={data.show_title}
-                  poster={data.poster}
-                  director={data.director}
-                  rating={data.rating}
-                  summary={data.summary}
-                  category={data.category}
+                  movie={data}
                   onResultClick={()=>onResultClick(data)}
                 />
               )
@@ -73,12 +70,7 @@ const ResultsTable = connect(mapStateToProps, mapDispatchToProps)(
               results.map((data, index)=> categories[data.category]<size &&
               <SearchResultRow
                 key={index}
-                title={data.show_title}
-                poster={data.poster}
-                director={data.director}
-                rating={data.rating}
-                summary={data.summary}
-                category={data.category}
+                movie={data}
                 onResultClick={()=>onResultClick(data)}
               />
             )

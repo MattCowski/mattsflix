@@ -13,11 +13,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Matt's Flix!</h2>
-          <p className="App-intro">
-            Search for a NETFLIX available movie
-          </p>
           <div className="Navigation">
-            <GenreButton/>
             <SortButton/>
             <SearchBox/>
           </div>
