@@ -4,6 +4,8 @@ Instant results as you type. Seamlessly switch between director / title / actor 
 
 Separation of concerns by using stateless react components that are basically functions. Business logic and state management is delegated to redux' actions, reducers that can be easily tested.
 
+Now automatically categorizes per category. I kept the filter buttons but only for categories that actually exist based on search results.
+The API doesn't always return a working poster url so I've added logic to check and set a flag to force display of title. This could also be a filter
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
