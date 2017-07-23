@@ -1,0 +1,91 @@
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+
+// Variables
+$font: 'Lato', sans-serif;
+
+// Colors
+$red: #e50914;
+$black: #221f1f;
+$blackblack: #000000;
+$grey: #f5f5f1;
+$white: #ffffff;
+
+// General
+body {
+	background: $black;
+	color: $white;
+	font-family: $font;
+}
+
+// Typography
+
+h2 {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin-bottom: 1em;
+}
+
+p {
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 1.6;
+	margin-bottom: 1em;
+}
+
+// Header
+.App-header {
+	display: flex;
+	padding: 40px ;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	box-sizing: border-box;
+	z-index: 5;
+
+  background-color: $black;
+  height: 150px;
+  padding: 20px;
+  color: $red;
+}
+
+
+// Search
+.Search {
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+
+	input {
+		font-family: $font;
+		font-weight: 300;
+		font-size: 14px;
+		height: 37px;
+		width: 20%;
+		background: transparent;
+		color: $white;
+		appearance: none;
+		border: 0;
+		border: 2px solid rgba($grey, .1);
+		outline: none;
+		border-radius: 37px;
+		padding: 0 10px;
+		pointer-events: all;
+		transition: border .25s ease, width .125s ease .125s;
+
+		&:focus {
+			border: 2px solid $red;
+			width: 30%;
+		}
+	}
+}
+
+.Results {
+  padding-top: 90px;
+
+}

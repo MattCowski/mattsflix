@@ -1,21 +1,61 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+body {
+  background: #221f1f;
+  color: #ffffff;
+  font-family: "Lato", sans-serif; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1em; }
+
+p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1em; }
 
 .App-header {
-  background-color: #222;
+  display: flex;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 5;
+  background-color: #221f1f;
   height: 150px;
   padding: 20px;
-  color: white;
-}
+  color: #e50914; }
 
-.App-intro {
-  font-size: large;
-}
+.Search {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center; }
+  .Search input {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    height: 37px;
+    width: 20%;
+    background: transparent;
+    color: #ffffff;
+    appearance: none;
+    border: 0;
+    border: 2px solid rgba(245, 245, 241, 0.1);
+    outline: none;
+    border-radius: 37px;
+    padding: 0 10px;
+    pointer-events: all;
+    transition: border .25s ease, width .125s ease .125s; }
+    .Search input:focus {
+      border: 2px solid #e50914;
+      width: 30%; }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.Results {
+  padding-top: 90px; }

@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SearchResultRow = ({onResultClick, title, rating, category, cast, director, summary, poster})=>
-    <tr onClick={onResultClick}>
-      <td>{title}</td>
-      <td>{rating}</td>
-      <td>{category}</td>
-      <td><img width="100" alt={title} src={poster}/></td>
-      <td>{director}</td>
-    </tr>
+const SearchResultRow = ({onResultClick, movie})=>
 
+      <div onClick={onResultClick} className="Item" style={{backgroundImage: 'url(' + movie.poster + ')'}} >
+				<div className="overlay" style={movie.posterLoaded? null:{opacity:1}}>
+					<div className="title" style={movie.posterLoaded? null:{opacity:1}}>{movie.show_title}</div>
+					<div className="rating">{movie.rating}</div>
+					<div className="plot">{movie.summary}</div>
+				</div>
+			</div>
 
 export default SearchResultRow
